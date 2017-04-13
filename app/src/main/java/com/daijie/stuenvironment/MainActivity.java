@@ -1,6 +1,8 @@
 package com.daijie.stuenvironment;
 
 import android.os.Build;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -14,9 +16,10 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
     TextView mTitleTextView;
-    RecyclerView mInfoRecyclerView;
+    TabLayout mTabLayout;
+    ViewPager mMainViewPager;
 
-    InfoAdapter mInfoAdapter;
+    MainFragmentAdapter mMainFragmentAdapter;
 
     protected int mStatusBarHeight;
     protected int mDeviceWidth;
@@ -51,7 +54,27 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         initToolbar();
-        initRecyclerView();
+        initTab();
+    }
+
+    private void initTab() {
+        mMainViewPager = (ViewPager) findViewById(R.id.mainViewPager);
+        mMainFragmentAdapter = new MainFragmentAdapter(getSupportFragmentManager());
+        mMainViewPager.setAdapter(mMainFragmentAdapter);
+
+        mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        mTabLayout.setupWithViewPager(mMainViewPager);
+        mTabLayout.getTabAt(0).setText("A座");
+        mTabLayout.getTabAt(1).setText("B座");
+        mTabLayout.getTabAt(2).setText("C座");
+        mTabLayout.getTabAt(3).setText("D座");
+        mTabLayout.getTabAt(4).setText("E座");
+        mTabLayout.getTabAt(5).setText("F座");
+        mTabLayout.getTabAt(6).setText("G座");
+        mTabLayout.getTabAt(7).setText("至诚");
+        mTabLayout.getTabAt(8).setText("弘毅");
+        mTabLayout.getTabAt(9).setText("思源");
+        mTabLayout.getTabAt(10).setText("知行");
     }
 
     private void initToolbar() {
@@ -70,13 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTitle(String title) {
         mTitleTextView.setText(title);
-    }
-
-    private void initRecyclerView() {
-        mInfoRecyclerView = (RecyclerView) findViewById(R.id.infoRecyclerView);
-        mInfoAdapter = new InfoAdapter();
-        mInfoRecyclerView.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
-        mInfoRecyclerView.setAdapter(mInfoAdapter);
     }
 }
 
