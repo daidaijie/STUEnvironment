@@ -1,11 +1,12 @@
 package com.daijie.stuenvironment;
 
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -13,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
     TextView mTitleTextView;
+    RecyclerView mInfoRecyclerView;
+
+    InfoAdapter mInfoAdapter;
 
     protected int mStatusBarHeight;
     protected int mDeviceWidth;
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         initToolbar();
+        initRecyclerView();
     }
 
     private void initToolbar() {
@@ -65,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTitle(String title) {
         mTitleTextView.setText(title);
+    }
+
+    private void initRecyclerView() {
+        mInfoRecyclerView = (RecyclerView) findViewById(R.id.infoRecyclerView);
+        mInfoAdapter = new InfoAdapter();
+        mInfoRecyclerView.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
+        mInfoRecyclerView.setAdapter(mInfoAdapter);
     }
 }
 
