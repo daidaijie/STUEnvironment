@@ -27,8 +27,9 @@ public class EnvironmentInfo {
         return number;
     }
 
-    public void setNumber(double number) {
+    public EnvironmentInfo setNumber(double number) {
         this.number = number;
+        return this;
     }
 
     public String getName() {

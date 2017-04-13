@@ -43,6 +43,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
         ));
         holder.mInfoTextView.setText(environmentInfo.getName());
         holder.mUnitTextView.setText(environmentInfo.getUnit());
+        holder.mNumberTextView.setText(Double.toString(environmentInfo.getNumber()));
         holder.mItemLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

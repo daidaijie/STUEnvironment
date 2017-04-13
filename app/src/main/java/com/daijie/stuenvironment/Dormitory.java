@@ -10,7 +10,7 @@ import java.util.Map;
  * Created by liyujie on 2017/4/13.
  */
 
-public class Dormitory implements Serializable{
+public class Dormitory implements Serializable {
 
     private String name;
 
@@ -21,12 +21,12 @@ public class Dormitory implements Serializable{
     public Dormitory(String name) {
         this.name = name;
         environmentInfos = new ArrayList<>();
-        environmentInfos.add(new EnvironmentInfo("甲醛浓度", "mg/m³", R.drawable.ic_jiaquan));
-        environmentInfos.add(new EnvironmentInfo("PM 2.5", "ug/m³", R.drawable.ic_pm25));
-        environmentInfos.add(new EnvironmentInfo("湿度", "% RH", R.drawable.ic_shidu));
-        environmentInfos.add(new EnvironmentInfo("Co", "mg/m³", R.drawable.ic_co));
-        environmentInfos.add(new EnvironmentInfo("So2", "mg/m³", R.drawable.ic_so2));
-        environmentInfos.add(new EnvironmentInfo("No2", "mg/m³", R.drawable.ic_no2));
+        environmentInfos.add(new EnvironmentInfo("甲醛浓度", "mg/m³", R.drawable.ic_jiaquan).setNumber(0.52));
+        environmentInfos.add(new EnvironmentInfo("PM 2.5", "ug/m³", R.drawable.ic_pm25).setNumber(44));
+        environmentInfos.add(new EnvironmentInfo("湿度", "% RH", R.drawable.ic_shidu).setNumber(35));
+        environmentInfos.add(new EnvironmentInfo("Co", "mg/m³", R.drawable.ic_co).setNumber(14));
+        environmentInfos.add(new EnvironmentInfo("So2", "mg/m³", R.drawable.ic_so2).setNumber(5.2));
+        environmentInfos.add(new EnvironmentInfo("No2", "mg/m³", R.drawable.ic_no2).setNumber(0.72));
 
         stringEnvironmentInfoMap = new HashMap<>();
         for (EnvironmentInfo environmentInfo : environmentInfos) {
