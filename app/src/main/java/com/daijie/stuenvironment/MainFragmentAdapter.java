@@ -16,11 +16,11 @@ public class MainFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return MainFragment.newInstance();
+        return MainFragment.newInstance(Dormitory.getDormitories().get(position));
     }
 
     @Override
     public int getCount() {
-        return 11;
+        return Dormitory.getDormitories().size();
     }
 }

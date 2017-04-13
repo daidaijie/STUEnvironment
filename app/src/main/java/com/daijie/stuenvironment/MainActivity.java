@@ -1,14 +1,12 @@
 package com.daijie.stuenvironment;
 
 import android.os.Build;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -64,17 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(mMainViewPager);
-        mTabLayout.getTabAt(0).setText("A座");
-        mTabLayout.getTabAt(1).setText("B座");
-        mTabLayout.getTabAt(2).setText("C座");
-        mTabLayout.getTabAt(3).setText("D座");
-        mTabLayout.getTabAt(4).setText("E座");
-        mTabLayout.getTabAt(5).setText("F座");
-        mTabLayout.getTabAt(6).setText("G座");
-        mTabLayout.getTabAt(7).setText("至诚");
-        mTabLayout.getTabAt(8).setText("弘毅");
-        mTabLayout.getTabAt(9).setText("思源");
-        mTabLayout.getTabAt(10).setText("知行");
+        for (int i = 0; i < Dormitory.getDormitories().size(); i++) {
+            mTabLayout.getTabAt(i).setText(Dormitory.getDormitories().get(i).getName());
+        }
     }
 
     private void initToolbar() {
@@ -93,6 +83,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTitle(String title) {
         mTitleTextView.setText(title);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
 

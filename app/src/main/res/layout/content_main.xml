@@ -22,6 +22,19 @@
             <TextView
                 android:id="@+id/titleTextView"
                 style="@style/titleTextViewStyle"/>
+
+            <com.like.LikeButton
+                android:id="@+id/likeButton"
+                android:layout_width="@dimen/toolbarHeight"
+                android:layout_height="@dimen/toolbarHeight"
+                android:layout_gravity="bottom|right"
+                app:circle_end_color="@android:color/white"
+                app:dots_primary_color="@android:color/white"
+                app:dots_secondary_color="@android:color/white"
+                app:icon_size="22dp"
+                app:icon_type="star"
+                app:like_drawable="@drawable/ic_star"
+                app:unlike_drawable="@drawable/ic_unstar"/>
         </android.support.v7.widget.Toolbar>
 
         <android.support.design.widget.TabLayout

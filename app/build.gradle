@@ -26,5 +26,11 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
+
+    // https://github.com/jd-alexander/LikeButton
+    compile 'com.github.jd-alexander:LikeButton:0.2.0',{
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
+
     testCompile 'junit:junit:4.12'
 }
